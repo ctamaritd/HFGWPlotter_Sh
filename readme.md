@@ -64,16 +64,11 @@ HFGWplotter_Sh/                     # Project directory
 
 ### Current Features
 
-- Interactive plotting of gravitational wave signals.
+- Interactive plotting of gravitational wave sensitivitiy curves
 - Toggle visibility of different gravitational wave detector sensitivity curves.
 - Annotations on the plot that provide additional information.
 - Customizable plot ranges and dimensions through interactive sliders.
-
-
-### Planned Features
-
-1. **Custom Curve Addition**: Introduce options for users to add their custom curves, either through mathematical expressions or by uploading data files in txt/csv formats.
-
+- Users can upload their own curves from a csv file
 
 
 ## Contributing
