@@ -1,6 +1,6 @@
 # HFGWplotter_Sh: Plotter of noise equivalent strain for gravitational wave detectors
 
-### Created, updated and maintained by Francesco Muia, Andreas Ringwald and Carlos Tamarit.
+### Created by Francesco Muia, Andreas Ringwald and Carlos Tamarit. Updated and maintained by A.R. and C.T.
 
 HFGWplotter_Sh is an interactive web application designed for visualizing and analyzing sensitivitiy curves for gravitational wave experiments. It offers a user-friendly interface for plotting  detector sensitivity curves, allowing researchers and enthusiasts to explore and interpret gravitational wave data effectively.
 
