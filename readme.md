@@ -1,4 +1,4 @@
-# HFGWplotter_Sh:  Plotter for noise equivalent strain for gravitational wave detectors
+# HFGWplotter_Sh: Plotter of noise equivalent strain for gravitational wave detectors
 
 ### Created, updated and maintained by Francesco Muia, Andreas Ringwald and Carlos Tamarit.
 
@@ -33,21 +33,20 @@ http://127.0.0.1:5003/Shplot
 The application is organized as follows:
 
 ```
-GWplots/                            # Project directory
+HFGWplotter_Sh/                     # Project directory
 │
 ├── Curves                          # Repository containing all the curves to be plotted
-|   ├── TheoreticalBoundsCurves     # Repository containing all theoretical bounds
-│   ├── DetectorCurves              # Repository containing all detector curves
-│   └── SignalCurves                # Repository containing all signal curves, divided into "Cosmological sources" and "PBHs"
-│       ├── CosmologicalSources
-│       └── PBHs
+│   └── DetectorCurves              # Repository containing all detector curves
+│ 
 │
 ├── aux                             # Repository containing auxiliary files
 │   ├── aux_functions.py            # File containing auxiliary functions
 │   ├── data_files.py               # File containing information about the curves to be plotted
-│   └── import.py                   # File containing all the imports
+│   ├── imports.py                  # File containing all the imports
+|   └── signal_functions.py         # File containing definitions for functions for some signal spectra (e.g. 1st order phase transitions)
+|
 │   
-├── Omegaplot 
+├── Shplot 
 │   ├──static/                      # Static files
 │   │   ├── css/                    # CSS files
 │   │   │   └── styles.css          # Main stylesheet
