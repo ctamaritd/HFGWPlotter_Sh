@@ -3,8 +3,7 @@ import numpy as np
 import pandas as pd
 from bokeh.models import RangeSlider,  CustomJSTickFormatter, Slider, LabelSet, ColumnDataSource, Line
 from bokeh.models.widgets import RadioButtonGroup
-from scipy.interpolate import RegularGridInterpolator as RGI
-from aux.signal_functions import hPT
+#from scipy.interpolate import RegularGridInterpolator as RGI
 #from aux.data_files import signal_data
 
 
