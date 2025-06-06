@@ -4,6 +4,12 @@
 
 HFGWplotter_Sh is an interactive web application designed for visualizing and analyzing sensitivitiy curves for gravitational wave experiments. It offers a user-friendly interface for plotting  detector sensitivity curves, allowing researchers and enthusiasts to explore and interpret gravitational wave data effectively.
 
+# Online version
+
+The app is running online at 
+
+https://incandenza-01.zdv.uni-mainz.de/Shplot/
+
 # Dependencies
 
 Requires python3 with the following additional dependencies:
