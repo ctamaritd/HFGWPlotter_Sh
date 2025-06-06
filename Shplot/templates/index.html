@@ -51,7 +51,7 @@
                 <tbody>
                 <tr>
                     <td>
-                        <!-- Direct bounds checkboxes -->
+                        <!-- Existing experiments-->
                         {% for label in physics_category_dict.Existing %}
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="{{ label }}" id="{{ label }}" onclick="updatePlot('{{ label }}'); updateComments(this)">
@@ -62,7 +62,7 @@
                         {% endfor %}
                     </td>
                     <td>
-                        <!-- Indirect bounds checkboxes -->
+                        <!-- Experiments with ongoing efforts -->
                         {% for label in physics_category_dict.Ongoing %}
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="{{ label }}" id="{{ label }}" onclick="updatePlot('{{ label }}'); updateComments(this)">
@@ -73,7 +73,7 @@
                         {% endfor %}
                     </td>
                     <td>
-                        <!-- Projected bounds checkboxes -->
+                        <!-- Proposed experiments -->
                         {% for label in physics_category_dict.Proposed %}
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="{{ label }}" id="{{ label }}" onclick="updatePlot('{{ label }}'); updateComments(this)">
@@ -83,6 +83,16 @@
                         </div>
                         {% endfor %}
                     </td>
+                </tr>
+                <tr>
+                 <th scope="col" colspan="3" class="text-center">
+                 <!-- User upload -->
+                        <h6>Upload your own curve!</h6>
+                        <form action={{ url_for('Shplot.upload') }} method="post" enctype="multipart/form-data">
+                        <input type="file" name="csvfile" accept=".csv">
+                        <input type="submit" value="Upload CSV">
+                        </form>
+                </th>
                 </tr>
                 </tbody>
             </table>

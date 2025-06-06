@@ -40,15 +40,19 @@ class Data:
                 #Only single value
                 x_coord = np.array([data[0]])
                 y_coord = np.array([data[1]])
-        if file_path.lower().endswith(".csv"):
-            data = np.genfromtxt(file_path, delimiter=",", dtype=None, encoding=None)
+        elif file_path.lower().endswith(".csv"):
             # Sort the array based on the first value in each pair
+            data = np.genfromtxt(file_path, delimiter=",", dtype=None, encoding=None)
             data = data[np.argsort(data[:, 0])]
             x_coord, y_coord = data[:, 0], data[:, 1]
             #Implement corrections. MAGO data shows things in terms of omega, not f, so need factors of 2pi
             if (label=='MAGO') or (label == 'MAGO (res)'):
                 x_coord = 1/(2*np.pi)*x_coord
                 y_coord = 1/np.sqrt(2*np.pi)*y_coord
+        else:#User data, empty path
+            #Bogus initialization user curve
+            x_coord = 10**np.linspace(-18,21,100)
+            y_coord = np.array([ 1E-200 for _ in range(100) ])
 
         return Data(x_coord, y_coord, color, linewidth, linestyle, opacity, depth, label, physics_category, curve_category, comment, delta_x, delta_y, label_angle, label_color, label_size)  # Pass the category to Data initialization
 
@@ -393,7 +397,11 @@ def add_curves_to_plot(fig, curves_dict,  physics_category_dict, curve_category_
                 data_y = data[y_key]
                 plot_source_curves.add(data_x, x_key)
                 plot_source_curves.add(data_y, y_key)
-                fig.line(x = x_key, y = y_key, source= plot_source_curves,  color = data[color_key], line_width = data[linewidth_key], line_dash = data[linestyle_key], line_alpha = data[opacity_key], level = data[depth_key], name = label, visible=False)
+                if 'user' in label:
+                    isvisible = True
+                else:
+                    isvisible = False
+                fig.line(x = x_key, y = y_key, source= plot_source_curves,  color = data[color_key], line_width = data[linewidth_key], line_dash = data[linestyle_key], line_alpha = data[opacity_key], level = data[depth_key], name = label, visible=isvisible)
             elif (curve_category == 'Areas'):
                 x_key = f'x_{label}'
                 y_key = f'y_{label}'
