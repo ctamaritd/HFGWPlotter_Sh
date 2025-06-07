@@ -397,10 +397,10 @@ def add_curves_to_plot(fig, curves_dict,  physics_category_dict, curve_category_
                 data_y = data[y_key]
                 plot_source_curves.add(data_x, x_key)
                 plot_source_curves.add(data_y, y_key)
-                if 'user' in label:
-                    isvisible = True
-                else:
-                    isvisible = False
+                #if 'Your curve' in label:
+                    #isvisible = True
+                #else:
+                isvisible = False
                 fig.line(x = x_key, y = y_key, source= plot_source_curves,  color = data[color_key], line_width = data[linewidth_key], line_dash = data[linestyle_key], line_alpha = data[opacity_key], level = data[depth_key], name = label, visible=isvisible)
             elif (curve_category == 'Areas'):
                 x_key = f'x_{label}'
