@@ -1,7 +1,7 @@
 # aux_functions.py
 import numpy as np
 import pandas as pd
-from bokeh.models import RangeSlider,  CustomJSTickFormatter, Slider, LabelSet, ColumnDataSource, Line
+from bokeh.models import RangeSlider,  CustomJSTickFormatter, Slider, LabelSet, ColumnDataSource, Line, ColorPicker, TextInput
 from bokeh.models.widgets import RadioButtonGroup
 #from scipy.interpolate import RegularGridInterpolator as RGI
 #from aux.data_files import signal_data
@@ -133,8 +133,8 @@ def create_sliders(fig,  Shmin, Shmax):
 
     range_slider_y = RangeSlider(
         title=r" Adjust $$S_h$$ range",
-        start=-96.,
-        end=-2.,
+        start=-42.,
+        end=-12.,
         step=1,
         value=(np.log10(float(Shmin)), np.log10(float(Shmax))),
         format=CustomJSTickFormatter(code="return ((Math.pow(10.,tick)).toExponential(0))")
@@ -146,8 +146,41 @@ def create_sliders(fig,  Shmin, Shmax):
 
     slider_height = Slider(title="Adjust plot height", start=240, end=1080, step=10, value=600)
 
+    user_color_picker = ColorPicker(title = "Line Color", color = 'darkred')
 
-    return range_slider_x, range_slider_y,  slider_width, slider_height  # return the sliders if needed
+    user_label_input = TextInput(title = "Label", value = "My curve")
+
+    user_label_size = TextInput(title = "Label Size", value = "9pt")
+
+    user_label_x = Slider(
+        title=" x coordinate of label",
+        start=-18.,
+        end=20.,
+        step=0.1,
+        value=-18,
+        format=CustomJSTickFormatter(code="return ((Math.pow(10,tick)).toExponential(0))"))
+
+
+    user_label_y = Slider(
+        title=" y coordinate of label",
+        start=-42.,
+        end=-12.,
+        step=0.1,
+        value=-30,
+        format=CustomJSTickFormatter(code="return ((Math.pow(10,tick)).toExponential(0))"))
+
+
+    user_label_angle = Slider(
+        title=" Angle of label (degrees)",
+        start=-np.pi,
+        end=np.pi,
+        step=0.01,
+        value=0.,
+        format=CustomJSTickFormatter(code="""return (tick * 180 / Math.PI).toFixed(0) + "\\u00B0";""")
+    )
+
+
+    return range_slider_x, range_slider_y,  slider_width, slider_height,  user_color_picker, user_label_input, user_label_size, user_label_x, user_label_y, user_label_angle  # return the sliders if needed
 
 # Create dictionary of curves and annotations
 def create_curves_dict(data_instances, physics_category_dict, curve_category_dict):

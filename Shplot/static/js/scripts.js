@@ -2,8 +2,11 @@
 function updatePlot(button_label) {
     console.log(button_label);
 
+    const checkbox = document.getElementById(button_label);
+    const isChecked = checkbox && checkbox.checked;
+
     const glyph = Bokeh.documents[0].get_model_by_name(button_label);
-    glyph.visible = !glyph.visible;
+    glyph.visible = isChecked;
 
     // const glyph = Bokeh.documents[0].get_model_by_name(`lollipop_${button_label}`);
     // glyph.visible = !glyph.visible;
@@ -11,7 +14,15 @@ function updatePlot(button_label) {
     const glyph2 = Bokeh.documents[0].get_model_by_name(`lollipop_${button_label}`);
 
     if (glyph2) {
-        glyph2.visible = !glyph2.visible;
+        glyph2.visible = isChecked;
+    }
+
+    const glyph3 = Bokeh.documents[0].get_model_by_name(`panel2_${button_label}`);
+
+    if (glyph3) {
+        console.log(`Found panel for ${button_label}`)
+        // glyph2.visible = !glyph2.visible;
+        glyph3.visible = isChecked;
     }
 
     const annotation = Bokeh.documents[0].get_model_by_name(`annotation_${button_label}`);

@@ -100,6 +100,6 @@ detector_data = [# Direct bounds. They are plotted as shaded areas, so line widt
      ('Curves/DetectorCurves/SLedDoG1g.csv', 'Lev. SC 1g', 'Proposed', 'Curves', color_proposed_2, 2, 'solid', 1,'glyph', None, 1E3, 1.6E-16, -np.pi/2.8, color_proposed_2, '11pt' ),
      ('Curves/DetectorCurves/SLedDoG_30kg.csv', 'Lev. SC 30kg', 'Proposed', 'Curves', color_proposed_3, 2, 'solid', 1,'overlay', None,1E2, 1.1E-18, -np.pi/2.8, color_proposed_3, '11pt' ),
      #User supplied##
-     (' ', 'Your curve', 'Proposed', 'Curves','darkred', 3, 'solid', 1,'glyph', None, 0, 0, 0, mplcolors[1], '9pt' )
+     (' ', 'Your curve', 'Proposed', 'Curves','darkred', 3, 'solid', 1,'glyph', None, 0, 0, 0, 'darkred', '9pt' )
 ]
 
