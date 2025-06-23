@@ -8,6 +8,8 @@ color_current = 'darkorange'
 color_current_2 = 'goldenrod'
 color_current_3 = 'peru'
 color_current_4 = 'sienna'
+color_current_5 = 'orange'
+color_current_6 = 'navajowhite'
 color_ongoing = 'rebeccapurple'
 color_ongoing_2 = 'blueviolet'
 color_ongoing_3 = 'magenta'
@@ -36,8 +38,8 @@ detector_data = [# Direct bounds. They are plotted as shaded areas, so line widt
     #Magnetic Weber bars
     ('Curves/DetectorCurves/MWB-DMR-broad.csv', 'Mag. Weber bars', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1,'glyph', None, 8E1,  1.7e-1*1.086552572360649e-19, -3.6*np.pi/8, color_proposed, '11pt' ),
     ('Curves/DetectorCurves/MWB-DMR-res.csv', 'Mag. Weber bars (res)', 'Proposed', 'Curves', color_proposed, 3, 'dotted', 1,'glyph', None, 1E-100, 1E-100, -3.6*np.pi/8, color_proposed, '11pt' ),
-    ('Curves/DetectorCurves/auriga_sens.csv', 'Auriga', 'Existing', 'Curves', color_current_3, 2, 'solid', 1,'glyph', None, 6E2, 9E-20, 0., color_current_3, '11pt' ),
-    ('Curves/DetectorCurves/minigrail.csv', 'MiniGrail', 'Existing', 'Curves', color_current_2, 2, 'solid', 1,'glyph', None, 2E3, 3E-18, 0., color_current_2, '11pt' ),
+    ('Curves/DetectorCurves/auriga_sens.csv', 'Auriga', 'Existing', 'Areas', color_current_6, 2, 'solid', 1,'glyph', None, 7E2, 9E-20, np.pi/2., 'white', '11pt' ),
+    ('Curves/DetectorCurves/minigrail.csv', 'MiniGrail', 'Existing', 'Areas', color_current_6, 2, 'solid', 1,'glyph', None, 2.5E3, 9E-20, np.pi/2, 'white', '11pt' ),
     ('Curves/DetectorCurves/MWB-EFR-broad.csv', 'ADMX-EFR', 'Proposed', 'Curves', color_proposed_2, 2, 'solid', 1,'glyph', None, 1E7, 1.2E-20, 0., color_proposed_2, '11pt' ),
     #Magnon Detectors
     ('Curves/DetectorCurves/magnon1.txt', 'magnon 2', 'Proposed', 'SingleFreq', color_proposed, 2, 'solid', 1,'glyph', None, 1E20, 1E20, np.pi/2, color_proposed, '11pt' ),
@@ -72,11 +74,11 @@ detector_data = [# Direct bounds. They are plotted as shaded areas, so line widt
     ('Curves/DetectorCurves/ligoO4a.csv', 'LIGO', 'Existing', 'Areas', color_current, 2, 'solid', 0.5, 'underlay', None, 1.8e3, 2.7e-24, 0.9*np.pi/4, color_current, '11pt' ),
     #('Curves/DetectorCurves/LIGOHF.txt', 'LIGO HF', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1,'glyph', None, 7E8,   1E-18, 0.7*np.pi/2.8, color_proposed, '11pt' ),
     ('Curves/DetectorCurves/LIGOHF2.txt', 'LIGO HF', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1,'glyph', None, 2E5,  4E-22, 0.7*np.pi/2.8, color_proposed, '11pt' ),
-    ('Curves/DetectorCurves/geo.csv', 'GEO600', 'Existing', 'Curves', color_current_3, 3, 'solid', 1, 'underlay', None, 1E2, 4.5e-22, -1.25*np.pi/4, color_current_3, '11pt' ),
+    ('Curves/DetectorCurves/geo.csv', 'GEO600', 'Existing', 'Areas', color_current, 3, 'solid', 0.6, 'underlay', None, 1.5E2, 1.5e-21, -1.25*np.pi/4, 'white', '11pt' ),
     ('Curves/DetectorCurves/GEOHF.txt', 'GEO HF', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1, 'underlay', None, 2E5,  4E-21, 0.7*np.pi/2.8, color_proposed, '11pt' ),
     ('Curves/DetectorCurves/nemo.csv', 'NEMO', 'Ongoing', 'Curves', color_ongoing, 2, 'solid', 1, 'underlay', None, 6e3, 2E-24, 2.9*np.pi/8, color_ongoing, '11pt' ),
     ('Curves/DetectorCurves/QUEST.csv', 'QUEST', 'Current', 'Areas', color_current, 2, 'solid', 0.6, 'underlay', None, None, None, 0, color_current, '11pt' ),
-    ('Curves/DetectorCurves/QUEST_design.csv', 'QUEST (design)', 'Proposed', 'Curves', color_ongoing, 2, 'solid', 0.6, 'underlay', None, None, None, 0, color_ongoing, '11pt' ),
+    ('Curves/DetectorCurves/QUEST_design.csv', 'QUEST (des.)', 'Proposed', 'Curves', color_ongoing, 2, 'solid', 1, 'underlay', None, 3E7, 5.0E-20, 0., color_ongoing, '11pt' ),
     #LIGHT SHINING THROUGH WALL
     ('Curves/DetectorCurves/DALI.txt', 'DALI II', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1,'glyph', None, 1E9, 8E-23, -np.pi/7.5, color_proposed, '11pt' ),
     ('Curves/DetectorCurves/DALIPT2.txt', 'DALI PT', 'Ongoing', 'Curves', color_ongoing, 2, 'solid', 1, 'underlay', None, 9E9, 1.5E-19, np.pi/2, color_ongoing, '11pt' ),#-np.pi/3.9
@@ -89,12 +91,12 @@ detector_data = [# Direct bounds. They are plotted as shaded areas, so line widt
      ('Curves/DetectorCurves/madmax_hybrid_broad_ext.csv', 'Madmax', 'Ongoing', 'Curves', color_ongoing_4, 2, 'solid', 1,'glyph', None, 1.e10, 2E-22, -np.pi/4, color_ongoing_4, '11pt' ),
      ('Curves/DetectorCurves/madmax_hybrid_res.csv', 'Madmax (res)', 'Ongoing', 'Curves', color_ongoing_4, 3, 'dotted', 1,'glyph', None,  1E-100,1E-100,-np.pi/4.2, color_ongoing_4, '11pt' ),
      #Holometer
-     ('Curves/DetectorCurves/HOLOMETER.txt', 'Holometer', 'Existing', 'Curves', color_current, 2, 'solid', 1,'underlay', None, 2E6, 6.E-20, 0, color_current, '11pt' ),
+     ('Curves/DetectorCurves/HOLOMETER.txt', 'Holometer', 'Existing', 'Areas', color_current, 2, 'solid', 0.6,'underlay', None, 3E6, 3.E-19, np.pi/2, 'white', '11pt' ),
      #Levitated sensors
      ('Curves/DetectorCurves/levitatedSensors_1mdisc.csv', 'Lev. sens. 1m', 'Ongoing', 'Curves', color_ongoing_5, 3, 'dotted', 1,'glyph', None, 1E4, 5E-19, -np.pi/2.81, color_ongoing_5, '11pt' ),
      ('Curves/DetectorCurves/levitatedSensors_100m.csv', 'Lev. sens. 100m', 'Proposed', 'Curves', color_proposed_2, 3, 'dotted', 1,'glyph', None, 6e4, 8e-24, -np.pi/25, color_proposed_2, '11pt' ),
      #Bulk accoustic wave devices
-     ('Curves/DetectorCurves/BAW_current.txt', 'BAW 1', 'Existing', 'SingleFreq', color_current, 2, 'solid', 1,'glyph', None, 4.5e6, 1e-17, np.pi/2, color_current, '11pt' ),
+     ('Curves/DetectorCurves/BAW_current.txt', 'BAW 1', 'Existing', 'SingleFreq', color_current, 2, 'solid', 1,'glyph', None, 1e7, 2e-21, np.pi/2, color_current, '11pt' ),
      ('Curves/DetectorCurves/BAW_20mK.csv', 'BAW 2', 'Ongoing', 'Curves', color_ongoing_4, 3, [6, 2, 1, 2], 1,'glyph', None, 3e8, 1.e-21,  3.*np.pi/8, color_ongoing_4, '11pt' ),
      #Levitated superconductors
      ('Curves/DetectorCurves/SLedDoG1g.csv', 'Lev. SC 1g', 'Proposed', 'Curves', color_proposed_2, 2, 'solid', 1,'glyph', None, 1E3, 1.6E-16, -np.pi/2.8, color_proposed_2, '11pt' ),

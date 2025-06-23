@@ -93,6 +93,7 @@ def index():
     script_bokeh_plot = server_document(url=f"http://localhost:5006/Shplotworkers/plot", arguments={"session_id": session_id})
 
 
+
     return render_template(
         'index.html',
         script_bokeh_plot = script_bokeh_plot,
