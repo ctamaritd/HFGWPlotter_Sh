@@ -1,6 +1,6 @@
 # HFGWplotter_Sh: Plotter of noise equivalent strain for gravitational wave detectors
 
-### Created by Francesco Muia, Andreas Ringwald and Carlos Tamarit. Updated and maintained by A.R. and C.T.
+### Created by Francesco Muia, Andreas Ringwald and Carlos Tamarit. Code maintained by Carlos Tamarit
 
 HFGWplotter_Sh is an interactive web application designed for visualizing and analyzing sensitivitiy curves for gravitational wave experiments. It offers a user-friendly interface for plotting  detector sensitivity curves, allowing researchers and enthusiasts to explore and interpret gravitational wave data effectively.
 
@@ -20,14 +20,29 @@ bokeh
 flask
 matplotlib
 
+For example, assuming python3 is installed you can create a python virtual environment
+
+$python3 -m venv python-virtual-env
+
+Inside the environment, you can install the dependencies using pip
+
+$pip install numpy scipy bokeh flask matplotlib
+
+To load the environment:
+
+$source python-virtual-env/bin/activate
+
 
 # How to run
 
-Execute the following command in the main folder:
+If you are using a virtual environment, make sure it is activated (see "source" command above)
+
+Execute the following command in the main folder
 
 python3 app_local.py 
 
 The plot can be accessed in a browser by entering the following local address:
+
 
 http://127.0.0.1:5003/Shplot
 
