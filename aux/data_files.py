@@ -77,7 +77,7 @@ detector_data = [# Direct bounds. They are plotted as shaded areas, so line widt
     ('Curves/DetectorCurves/geo.csv', 'GEO600', 'Existing', 'Areas', color_current, 3, 'solid', 0.6, 'underlay', None, 1.5E2, 1.5e-21, -1.25*np.pi/4, 'white', '11pt' ),
     ('Curves/DetectorCurves/GEOHF.txt', 'GEO HF', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1, 'underlay', None, 2E5,  4E-21, 0.7*np.pi/2.8, color_proposed, '11pt' ),
     ('Curves/DetectorCurves/nemo.csv', 'NEMO', 'Ongoing', 'Curves', color_ongoing, 2, 'solid', 1, 'underlay', None, 6e3, 2E-24, 2.9*np.pi/8, color_ongoing, '11pt' ),
-    ('Curves/DetectorCurves/QUEST.csv', 'QUEST', 'Current', 'Areas', color_current, 2, 'solid', 0.6, 'underlay', None, None, None, 0, color_current, '11pt' ),
+    ('Curves/DetectorCurves/QUEST.csv', 'QUEST', 'Existing', 'Areas', color_current, 2, 'solid', 0.6, 'underlay', None, 1.7E7, 4E-18, 0., 'white', '11pt' ),
     ('Curves/DetectorCurves/QUEST_design.csv', 'QUEST (des.)', 'Proposed', 'Curves', color_ongoing, 2, 'solid', 1, 'underlay', None, 3E7, 5.0E-20, 0., color_ongoing, '11pt' ),
     #LIGHT SHINING THROUGH WALL
     ('Curves/DetectorCurves/DALI.txt', 'DALI II', 'Proposed', 'Curves', color_proposed, 2, 'solid', 1,'glyph', None, 1E9, 8E-23, -np.pi/7.5, color_proposed, '11pt' ),
