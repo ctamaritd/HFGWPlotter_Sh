@@ -35,7 +35,7 @@ warnings.filterwarnings("ignore", message="ColumnDataSource's columns must be of
 
 # Create a Flask app and register the Blueprint with a URL prefix
 app = Flask(__name__)
-app.secret_key = 'NotSoSecretKey'
+app.secret_key = 'George437!Grabwoski#:Hubi1323_Lana!'
 UPLOAD_FOLDER = '/tmp/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -90,7 +90,7 @@ def upload():
 @Shplot.route('/')
 def index():
     session_id = session.get("user_id")
-    script_bokeh_plot = server_document(url=f"http://localhost:5006/Shplotworkers/plot", arguments={"session_id": session_id})
+    script_bokeh_plot = server_document(url=f"http://localhost:41327/Shplotworkers/plot", arguments={"session_id": session_id}) # url=f"http://localhost:41327/Shplotworkers/plot" url=f"https://incandenza-01.zdv.uni-mainz.de/Shplotworkers/plot" local_python f"http://localhost:5006/Shplotworkers/plot"  ##CHANGE FOR SERVER
 
 
 
@@ -714,16 +714,78 @@ app.register_blueprint(Shplot, url_prefix='/Shplot')
 ##CODE TO RUN WITH FLASK INTEGRATED SERVER
 ###########################################
 # Start Flask app in a separate thread
-flask_thread = Thread(target=lambda: app.run(debug=True, port=5003, use_reloader=False))
-flask_thread.start()
+#flask_thread = Thread(target=lambda: app.run(debug=True, port=5003, use_reloader=False))
+#flask_thread.start()
 
 # Create and start a single Bokeh server with the different apps with different urls
-server = Server({'/plot': plot_app}, prefix="/Shplotworkers", io_loop=IOLoop.current(), allow_websocket_origin=["*","localhost:5006","127.0.0.1:5006","localhost:5003","127.0.0.1:5003"], port=5006)
-server.start()
+#server = Server({'/plot': plot_app}, prefix="/Shplotworkers", io_loop=IOLoop.current(), allow_websocket_origin=["*","localhost:5006","127.0.0.1:5006","localhost:5003","127.0.0.1:5003"], port=5006)
+#server.start()
 
 
+
+# This is so that if this app is run using something like "gunicorn -w 4" then
+# each process will listen on its own port
+#sockets, port = bind_sockets("0.0.0.0", 0)
+#print('port =',port)
+
+
+#if __name__ == '__main__':
+#     server.io_loop.start()
+#     flask_thread.join()
+
+###########################################
+##CODE TO RUN WITH gunicorn
+###########################################
 
 if __name__ == '__main__':
-     server.io_loop.start()
-     flask_thread.join()
+    print('This script is intended to be run with gunicorn. e.g.')
+    print()
+    print('    gunicorn -w 4 app:app')
+    print()
+    print('will start the app on four processes')
+    import sys
+    sys.exit()
+
+
+
+
+
+def bk_worker(port):
+    asyncio.set_event_loop(asyncio.new_event_loop())
+
+    bokeh_tornado = BokehTornado({'/plot': plot_app}, prefix="/Shplotworkers", extra_websocket_origins=["*"])
+    bokeh_http = HTTPServer(bokeh_tornado)
+    #older dynamical ports bokeh_http.add_sockets(sockets)
+    bokeh_http.listen(port) #listen to given port
+
+    server = BaseServer(IOLoop.current(), bokeh_tornado, bokeh_http)
+    server.start()
+    print(f"Bokeh worker started on port {port}")
+    server.io_loop.start()
+
+#worker ports
+
+worker_ports = [41327] #fixed ports  [41327, 35291] #CHANGE FOR SERVER
+
+def start_bokeh_worker():
+
+	num_workers = len(worker_ports)
+
+	worker_index = os.getpid() % num_workers
+
+	#Assign a port based on worker id
+	port = worker_ports[worker_index % num_workers]
+	print(f"Starting Bokeh worker for Gunicorn worker {worker_index} on port {port}")
+
+	t = Thread(target=bk_worker, args = (port,))
+	t.daemon = True
+	t.start()
+
+
+start_bokeh_worker()
+
+
+
+
+
 

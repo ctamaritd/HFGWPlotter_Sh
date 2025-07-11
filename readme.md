@@ -2,8 +2,6 @@
 
 ### Created by Francesco Muia, Andreas Ringwald and Carlos Tamarit. Code maintained by Carlos Tamarit
 
-### Credit for the data of the plots go the authors of arXiv:2501.11723, whose results and figures are the basis of this plotter
-
 HFGWplotter_Sh is an interactive web application designed for visualizing and analyzing sensitivitiy curves for gravitational wave experiments. It offers a user-friendly interface for plotting  detector sensitivity curves, allowing researchers and enthusiasts to explore and interpret gravitational wave data effectively.
 
 # Online version
